@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from typing import List
+from typing import Dict
 import random
 
 
-sort_size = {
-    "small": 50,
-    "middle": 100
-}
-
-
 def sort(int_array: List[int]) -> List[int]:
+    sort_size = get_sort_size()
     length = len(int_array)
     if length < sort_size['small']:
         print("bubble_sort")
@@ -24,6 +20,13 @@ def sort(int_array: List[int]) -> List[int]:
         print("quick_sort")
         sort_array = quick_sort(int_array)
         return sort_array
+
+
+def get_sort_size() -> Dict[str, int]:
+    return {
+        "small": 50,
+        "middle": 100
+    }
 
 
 def bubble_sort(int_array: [int]) -> List[int]:
